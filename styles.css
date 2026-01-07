@@ -1,0 +1,222 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #1e1e2f 0%, #121212 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --primary: #6c5ce7;
+    --accent: #00cec9;
+    --danger: #ff7675;
+    --text: #f5f6fa;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    margin: 0;
+}
+
+.appContainer {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+/* Filter Buttons */
+#filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+#filters button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#filters button:hover {
+    background: var(--primary);
+}
+
+/* Input Section */
+.topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+}
+
+#todoSubmitButton {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+li span {
+    flex-grow: 1;
+}
+
+/* Action Buttons */
+li button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+li button:first-of-type {
+    color: var(--accent);
+}
+
+/* Complete */
+li button:last-of-type {
+    color: var(--danger);
+}
+
+/* Delete */
+
+#errorMessage {
+    color: var(--danger);
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 1.2em;
+}
+
+
+/* Persistent active state for filter buttons */
+#filters button.active {
+    background-color: var(--primary);
+    /* Uses the primary color from the previous design */
+    color: white;
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.appFooter {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(245, 246, 250, 0.6);
+    /* Muted text color */
+}
+
+.appFooter strong {
+    color: var(--primary);
+    /* Uses the accent color from your theme */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(245, 246, 250, 0.6);
+
+}
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    .appContainer {
+        width: 95%;      /* Give more room on tiny screens */
+        padding: 1.2rem; /* Slightly smaller padding */
+        margin: 10px auto;
+    }
+
+    /* Stack the input and submit button for better thumb reach */
+    .topSection {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #todoInput, #todoSubmitButton {
+        width: 100%;    /* Full width on mobile */
+        box-sizing: border-box;
+    }
+
+    /* Wrap filter buttons if they get too crowded */
+    #filters {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    #filters button {
+        flex: 1 1 30%;   /* Buttons grow to fill space */
+        min-height: 44px; /* Professional touch target size */
+    }
+
+    /* List items adjustment */
+    li {
+        padding: 15px 10px; /* More vertical space for easier tapping */
+        font-size: 1rem;
+    }
+    .tickButton  {
+        font-size: 44px;
+    }
+    .deleteButton {
+        font-size: 44px;
+    }
+    #todoInput {
+        font-size: 16px;
+    }
+}
